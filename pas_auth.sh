@@ -1,7 +1,7 @@
 METHOD="$1"
 MAC="$2"
 
-./auth_sh auth_client "$2" "$3" "$4"
+./auth_curl auth_client "$2" "$3" "$4"
 
 case "$METHOD" in
   auth_client)

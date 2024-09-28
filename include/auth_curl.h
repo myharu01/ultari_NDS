@@ -5,7 +5,7 @@
 
 #define LOGIN_SERVER_URL "https://ecampus.smu.ac.kr/login/index.php"
 #define USER_INFO_URL "https://ecampus.smu.ac.kr/user/user_edit.php"
-
+#define EXPIRATION_TIME 7200
 
 enum smul_error_code{
 	UNKNOWN_ERROR,

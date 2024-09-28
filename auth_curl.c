@@ -2,9 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <curl/curl.h>
-#include "auth_sh.h"
+#include "auth_curl.h"
 #include "input_validation.h"
-#include "authserver.h"
 
 struct memory_struct{
 	char *memory;
@@ -79,7 +78,7 @@ int main(int argc, char *argv[]) {
 		if (strstr(chunk.memory, "errorcode") == NULL) {
 			free(chunk.memory);
 			//printf("Client : %s (mac address) succeed to login\n", client_mac);
-			printf("%d 0 0\n",JWT_EXPIRATION_TIME);
+			printf("%d 0 0\n", EXPIRATION_TIME);
 
 		//	result->curl = curl;
 		//	result->errorcode = LOGIN_SUCCESS;
