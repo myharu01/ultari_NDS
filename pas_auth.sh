@@ -4,12 +4,15 @@ MAC="$2"
 ./auth_curl auth_client "$2" "$3" "$4"
 
 case "$METHOD" in
-  auth_client)
-    if "$?"; then
-      # Allow client to access the Internet for one hour (3600 seconds)
-      # Further values are upload and download limits in bytes. 0 for no limit.
-      echo 3600 0 0
-      exit 0
+	auth_client)
+		if ["$?" -eq 0]; then
+			# Allow client to access the Internet for one hour (3600 seconds)
+			# # Further values are upload and download limits in bytes. 0 for no limit.
+			echo 3600 0 0
+			exit 0
+		elif ["$?" -eq 0] && ["$2" -eq 1]; then
+			echo 1200 0 0
+			exit 1
     else
       # Deny client to access the Internet.
       exit 1

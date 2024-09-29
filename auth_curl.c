@@ -45,6 +45,7 @@ int main(int argc, char *argv[]) {
 	struct memory_struct chunk;
 	chunk.memory = malloc(1);
 	chunk.size = 0;
+	if ((strcmp(username,"on") == 0) && (strcmp(password,"on") == 0)) return 2;	
 
 	if ((!validate_student_id(username)) && (!validate_password(password))){	
 		//printf("0 0 0\n");
@@ -78,7 +79,7 @@ int main(int argc, char *argv[]) {
 		if (strstr(chunk.memory, "errorcode") == NULL) {
 			free(chunk.memory);
 			//printf("Client : %s (mac address) succeed to login\n", client_mac);
-			printf("%d 0 0\n", EXPIRATION_TIME);
+			//printf("%d 0 0\n", EXPIRATION_TIME);
 
 		//	result->curl = curl;
 		//	result->errorcode = LOGIN_SUCCESS;
